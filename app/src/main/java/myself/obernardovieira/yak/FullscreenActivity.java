@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -106,6 +108,34 @@ public class FullscreenActivity extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int x = 0;
+                while(true) {
+
+                    final int y = x;
+                    FullscreenActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            TextView mtext = new TextView(FullscreenActivity.this);
+                            mtext.setText("abc " + y);
+                            LinearLayout id_hack_layout = (LinearLayout)findViewById(R.id.id_hack_layout);
+                            id_hack_layout.addView(mtext);
+                        }
+                    });
+
+                    x ++;
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     }
 
     @Override

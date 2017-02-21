@@ -26,6 +26,27 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:keepScreenOn="true"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/id_hack_layout">
+
+                <TextView
+                    android:text="@string/dummy_hack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_hacking" />
+            </LinearLayout>
+        </ScrollView>
+
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"
             style="?metaButtonBarStyle"
