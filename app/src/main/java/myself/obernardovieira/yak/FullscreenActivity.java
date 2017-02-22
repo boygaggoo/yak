@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 /**
@@ -124,6 +125,14 @@ public class FullscreenActivity extends AppCompatActivity {
                             mtext.setText("abc " + y);
                             LinearLayout id_hack_layout = (LinearLayout)findViewById(R.id.id_hack_layout);
                             id_hack_layout.addView(mtext);
+
+                            final ScrollView mScrollView = (ScrollView)findViewById(R.id.scroll_hack);
+
+                            mScrollView.post(new Runnable() {
+                                public void run() {
+                                    mScrollView.scrollTo(0, mScrollView.getBottom());
+                                }
+                            });
                         }
                     });
 
