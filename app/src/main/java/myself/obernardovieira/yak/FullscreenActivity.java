@@ -1,6 +1,7 @@
 package myself.obernardovieira.yak;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadLocalRandom;
+
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -20,7 +27,10 @@ import java.util.List;
  */
 public class FullscreenActivity extends AppCompatActivity {
 
-    List<String> my_array = new ArrayList<>();
+    int total_lines;
+    LinearLayout id_hack_layout;
+    ScrollView scroll_hack;
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
     /**
      * Whether or not the system UI should be auto-hidden after
@@ -117,49 +127,47 @@ public class FullscreenActivity extends AppCompatActivity {
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
 
 
-        new Thread(new Runnable() {
+        total_lines = 0;
+        //
+        id_hack_layout = (LinearLayout)findViewById(R.id.id_hack_layout);
+        scroll_hack = (ScrollView)findViewById(R.id.scroll_hack);
+
+
+        final Runnable beeper = new Runnable()
+        {
             @Override
-            public void run() {
-                int x = 0;
-
-                while(true) {
-
-                    final int y = x;
-                    FullscreenActivity.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            TextView mtext = new TextView(FullscreenActivity.this);
-                            mtext.setText("abc " + y);
-                            my_array.add("abc " + y);
-                            LinearLayout id_hack_layout = (LinearLayout)findViewById(R.id.id_hack_layout);
-                            id_hack_layout.addView(mtext);
-
-                            final ScrollView mScrollView = (ScrollView)findViewById(R.id.scroll_hack);
-
-                            mScrollView.post(new Runnable() {
-                                public void run() {
-                                    mScrollView.scrollTo(0, mScrollView.getBottom());
-                                }
-                            });
-                            //quando forem 60, reduz para 50!
-                            if(my_array.size() == 10)
+            public void run()
+            {
+                FullscreenActivity.this.runOnUiThread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        TextView pre_set_text;
+                        pre_set_text = new TextView(FullscreenActivity.this);
+                        pre_set_text.setTextColor(Color.WHITE);
+                        pre_set_text.setText("Hack! " + ThreadLocalRandom.current().nextInt(0, 10));
+                        //
+                        id_hack_layout.addView(pre_set_text);
+                        scroll_hack.post(new Runnable()
+                        {
+                            public void run()
                             {
-                                my_array = my_array.subList(4, 9);
-                                id_hack_layout.removeViewsInLayout(0, 4);
+                                scroll_hack.scrollTo(0, scroll_hack.getBottom());
                             }
-
+                        });
+                        if(total_lines == 40)
+                        {
+                            id_hack_layout.removeViewsInLayout(0, 10);
+                            total_lines -= 10;
                         }
-                    });
-
-                    x ++;
-                    try {
-                        Thread.sleep(300);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        total_lines++;
                     }
-                }
+                });
             }
-        }).start();
+        };
+        scheduler.scheduleAtFixedRate(beeper, 0, 300, MILLISECONDS);
+
     }
 
     @Override

@@ -14,7 +14,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:keepScreenOn="true"
-        android:text="@string/dummy_content"
         android:textColor="#33b5e5"
         android:textSize="50sp"
         android:textStyle="bold" />
@@ -40,11 +39,6 @@
                 android:orientation="vertical"
                 android:id="@+id/id_hack_layout">
 
-                <TextView
-                    android:text="@string/dummy_hack"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_hacking" />
             </LinearLayout>
         </ScrollView>
 
