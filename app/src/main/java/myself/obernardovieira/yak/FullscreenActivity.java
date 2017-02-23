@@ -11,11 +11,17 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
 public class FullscreenActivity extends AppCompatActivity {
+
+    List<String> my_array = new ArrayList<>();
+
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -115,6 +121,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 int x = 0;
+
                 while(true) {
 
                     final int y = x;
@@ -123,6 +130,7 @@ public class FullscreenActivity extends AppCompatActivity {
                         public void run() {
                             TextView mtext = new TextView(FullscreenActivity.this);
                             mtext.setText("abc " + y);
+                            my_array.add("abc " + y);
                             LinearLayout id_hack_layout = (LinearLayout)findViewById(R.id.id_hack_layout);
                             id_hack_layout.addView(mtext);
 
@@ -133,12 +141,19 @@ public class FullscreenActivity extends AppCompatActivity {
                                     mScrollView.scrollTo(0, mScrollView.getBottom());
                                 }
                             });
+                            //quando forem 60, reduz para 50!
+                            if(my_array.size() == 10)
+                            {
+                                my_array = my_array.subList(4, 9);
+                                id_hack_layout.removeViewsInLayout(0, 4);
+                            }
+
                         }
                     });
 
                     x ++;
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(300);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
