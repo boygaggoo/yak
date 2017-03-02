@@ -30,6 +30,10 @@ public class FullscreenActivity extends AppCompatActivity {
     int total_lines;
     LinearLayout id_hack_layout;
     ScrollView scroll_hack;
+    String[] c_aircrack_ng;
+    String[] a_aircrack_ng;
+    String next_text;
+    int next_random;
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
     /**
@@ -131,9 +135,11 @@ public class FullscreenActivity extends AppCompatActivity {
         //
         id_hack_layout = (LinearLayout)findViewById(R.id.id_hack_layout);
         scroll_hack = (ScrollView)findViewById(R.id.scroll_hack);
+        //
+        c_aircrack_ng = getResources().getStringArray(R.array.c_aircrack_ng);
+        a_aircrack_ng = getResources().getStringArray(R.array.a_aircrack_ng);
 
-
-        final Runnable beeper = new Runnable()
+        final Runnable next_hack_message = new Runnable()
         {
             @Override
             public void run()
@@ -144,10 +150,14 @@ public class FullscreenActivity extends AppCompatActivity {
                     public void run()
                     {
                         TextView pre_set_text;
+                        //
                         pre_set_text = new TextView(FullscreenActivity.this);
                         pre_set_text.setTextColor(Color.WHITE);
-                        pre_set_text.setText("Hack! " + ThreadLocalRandom.current().nextInt(0, 10));
                         //
+                        next_random = ThreadLocalRandom.current().nextInt(0, c_aircrack_ng.length);
+                        next_text = "$ " + c_aircrack_ng[next_random];
+                        //
+                        pre_set_text.setText(next_text);
                         id_hack_layout.addView(pre_set_text);
                         scroll_hack.post(new Runnable()
                         {
@@ -164,9 +174,15 @@ public class FullscreenActivity extends AppCompatActivity {
                         total_lines++;
                     }
                 });
+                if(total_lines % 10 == 0 || total_lines % 11 == 0 || total_lines % 12 == 0)
+                    scheduler.schedule(this, 50 +
+                            ThreadLocalRandom.current().nextInt(0, 350), MILLISECONDS);
+                else
+                    scheduler.schedule(this, 50 +
+                            ThreadLocalRandom.current().nextInt(0, 150), MILLISECONDS);
             }
         };
-        scheduler.scheduleAtFixedRate(beeper, 0, 300, MILLISECONDS);
+        scheduler.schedule(next_hack_message, 300, MILLISECONDS);
 
     }
 

