@@ -19,19 +19,35 @@
         <item>aircrack-ng -w password.lst -b 00:14:6C:7E:40:80 psk*.cap</item>
     </string-array>
 
+    <!-- exploit -->
+
+    <!-- data system -->
+
+    <!-- downloading software -->
+
+    <!-- uploading data -->
+
 
     <!-- answers -->
 
     <!-- wifi -->
     <string-array name="a_aircrack_ng">
         <item>Interface       Chipset         Driver\nrausb0          Ralink RT73     rt73\nwlan0           Broadcom        b43 - [phy0]\nwifi0           Atheros         madwifi-ng\nath0            Atheros         madwifi-ng VAP (parent: wifi0)</item>
-        <item>airmon-ng stop ath0</item>
-        <item>airmon-ng start wifi0 9</item>
-        <item>airmon-ng start rausb0 9</item>
-        <item>airodump-ng -c 9 --bssid 00:14:6C:7E:40:80 -w psk ath0</item>
-        <item>aireplay-ng -0 1 -a 00:14:6C:7E:40:80 -c 00:0F:B5:FD:FB:C2 ath0</item>
-        <item>aircrack-ng -w password.lst -b 00:14:6C:7E:40:80 psk*.cap</item>
+        <item>Interface       Chipset         Driver\nwifi0           Atheros         madwifi-ng\nath0            Atheros         madwifi-ng VAP (parent: wifi0) (VAP destroyed)</item>
+        <item>Interface       Chipset         Driver\nwifi0           Atheros         madwifi-ng\nath0            Atheros         madwifi-ng VAP (parent: wifi0) (monitor mode enabled)</item>
+        <item>Interface       Chipset         Driver\nwlan0           Broadcom        b43 - [phy0]\n(monitor mode enabled on mon0)</item>
+        <item>eth0      no wireless extensions.\nwmaster0  no wireless extensions.\nwlan0     IEEE 802.11bg  ESSID:""\nmon0      IEEE 802.11bg  Mode:Monitor  Frequency:2.452 GHz  Tx-Power=0 dBm</item>
+        <item>Interface       Chipset         Driver\nrausb0          Ralink          rt73 (monitor mode enabled)</item>
+        <item>CH  9 ][ Elapsed: 4 s ][ 2007-03-24 16:58 ][ WPA handshake: 00:14:6C:7E:40:80\nBSSID              PWR RXQ  Beacons    #Data, #/s  CH  MB  ENC  CIPHER AUTH ESSID\n00:14:6C:7E:40:80   39 100       51      116   14   9  54  WPA2 CCMP   PSK  teddy    </item>
     </string-array>
+
+    <!-- exploit -->
+
+    <!-- data system -->
+
+    <!-- downloading software -->
+
+    <!-- uploading data -->
 
 
 </resources>
