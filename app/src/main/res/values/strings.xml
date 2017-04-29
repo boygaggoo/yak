@@ -50,4 +50,76 @@
     <!-- uploading data -->
 
 
+
+    <!-- https://pastebin.com/raw/Bb3T6RZt -->
+    <string-array name="random_conversation">
+        <item>[10:23 PM, 4/26/2017] +31 6 41172341: What</item>
+        <item>[10:31 PM, 4/26/2017] +31 6 41172341: ?</item>
+        <item>[10:34 PM, 4/26/2017] +31 6 41172341: Oi stop ignoring me cunt</item>
+        <item>[10:34 PM, 4/26/2017] Diya: You\'re an actual fucking snake.</item>
+        <item>[10:35 PM, 4/26/2017] +31 6 41172341: What lol</item>
+        <item>[10:35 PM, 4/26/2017] Diya: I\'m done for real this time</item>
+        <item>[10:35 PM, 4/26/2017] Diya: I\'m sure you can figure out why?</item>
+        <item>[10:35 PM, 4/26/2017] +31 6 41172341: No what the fuck are you freaking out for</item>
+        <item>[10:35 PM, 4/26/2017] +31 6 41172341: Calm the fuck down</item>
+        <item>[10:38 PM, 4/26/2017] Diya: Stop pretending already</item>
+        <item>[10:38 PM, 4/26/2017] Diya: I know it now.</item>
+        <item>[10:39 PM, 4/26/2017] +31 6 41172341: You off your meds?</item>
+        <item>[10:39 PM, 4/26/2017] +31 6 41172341: What are you on about</item>
+        <item>[10:39 PM, 4/26/2017] Diya: Who gave you my password Kevin?</item>
+        <item>[10:40 PM, 4/26/2017] +31 6 41172341: What lol</item>
+        <item>[10:40 PM, 4/26/2017] +31 6 41172341: You think I messed with your shit?</item>
+        <item>[10:40 PM, 4/26/2017] +31 6 41172341: What reason would I have to do that</item>
+        <item>[10:40 PM, 4/26/2017] Diya: I didn't think you had any?</item>
+        <item>[10:41 PM, 4/26/2017] Diya: But now I want to know why?</item>
+        <item>[10:41 PM, 4/26/2017] Diya: Why the fuck did you do it?</item>
+        <item>[10:41 PM, 4/26/2017] +31 6 41172341: I didn't do shit and I'm getting fucking sick of your accusations</item>
+        <item>[10:41 PM, 4/26/2017] +31 6 41172341: Take your shit down a notch or this shit is over</item>
+        <item>[10:42 PM, 4/26/2017] Diya: Are you serious rn</item>
+        <item>[10:42 PM, 4/26/2017] Diya: You think I wouldn't ever figure it out?</item>
+        <item>[10:42 PM, 4/26/2017] Diya: How stupid do you think I am?</item>
+        <item>[10:42 PM, 4/26/2017] +31 6 41172341: Are you fucking serious?</item>
+        <item>[10:44 PM, 4/26/2017] Diya: Ok out of everyone I know</item>
+        <item>[10:44 PM, 4/26/2017] Diya: There's only 1 person</item>
+        <item>[10:44 PM, 4/26/2017] Diya: I repeat 1 person</item>
+    </string-array>
+
+    <string-array name="random_sql_code">
+        <item>table info</item>
+        <item>CREATE TABLE  `user` (</item>
+        <item>`u_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,</item>
+        <item>`u_name` VARCHAR( 255 ) NOT NULL ,</item>
+        <item>`u_pass` VARCHAR( 255 ) NOT NULL ,</item>
+        <item>`u_email` VARCHAR( 255 ) NOT NULL ,</item>
+        <item>`u_about` INT NOT NULL</item>
+        <item>) ENGINE = MYISAM ;</item>
+    </string-array>
+
+    <!-- https://pastebin.com/raw/2PenZbqr -->
+    <string-array name="random_cpp_code">
+        <item>std::vector&lt;int&gt; cycle(const std::vector&lt;std::list&lt;size_t&gt;&gt;\&amp; graph) {</item>
+        <item>std::vector&lt;char&gt; visited(graph.size(), '0');</item>
+        <item>std::vector&lt;int&gt; parent(graph.size(), -1);</item>
+        <item>int cycle_begin = -1, cycle_end = -1;</item>
+
+        <item>std::vector&lt;int&gt; result;</item>
+        <item>for (int i = 0; i != graph.size(); ++i) {</item>
+        <item>if (visited[i] == '0') {</item>
+        <item>bool cycled = DFS(graph, visited, i, parent, cycle_begin, cycle_end);</item>
+        <item>if (cycled) {</item>
+        <item>int current = cycle_end;</item>
+        <item>while (current != cycle_begin) {</item>
+        <item>result.push_back(current);</item>
+        <item>current = parent[current];</item>
+        <item>}</item>
+        <item>result.push_back(current);</item>
+        <item>return result;</item>
+        <item>}</item>
+        <item>}</item>
+        <item>}</item>
+
+        <item>return result;</item>
+        <item>}</item>
+    </string-array>
+
 </resources>
