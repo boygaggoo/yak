@@ -70,17 +70,17 @@
         <item>[10:40 PM, 4/26/2017] +31 6 41172341: What lol</item>
         <item>[10:40 PM, 4/26/2017] +31 6 41172341: You think I messed with your shit?</item>
         <item>[10:40 PM, 4/26/2017] +31 6 41172341: What reason would I have to do that</item>
-        <item>[10:40 PM, 4/26/2017] Diya: I didn't think you had any?</item>
+        <item>[10:40 PM, 4/26/2017] Diya: I didn\'t think you had any?</item>
         <item>[10:41 PM, 4/26/2017] Diya: But now I want to know why?</item>
         <item>[10:41 PM, 4/26/2017] Diya: Why the fuck did you do it?</item>
-        <item>[10:41 PM, 4/26/2017] +31 6 41172341: I didn't do shit and I'm getting fucking sick of your accusations</item>
+        <item>[10:41 PM, 4/26/2017] +31 6 41172341: I didn\'t do shit and I\'m getting fucking sick of your accusations</item>
         <item>[10:41 PM, 4/26/2017] +31 6 41172341: Take your shit down a notch or this shit is over</item>
         <item>[10:42 PM, 4/26/2017] Diya: Are you serious rn</item>
-        <item>[10:42 PM, 4/26/2017] Diya: You think I wouldn't ever figure it out?</item>
+        <item>[10:42 PM, 4/26/2017] Diya: You think I wouldn\'t ever figure it out?</item>
         <item>[10:42 PM, 4/26/2017] Diya: How stupid do you think I am?</item>
         <item>[10:42 PM, 4/26/2017] +31 6 41172341: Are you fucking serious?</item>
         <item>[10:44 PM, 4/26/2017] Diya: Ok out of everyone I know</item>
-        <item>[10:44 PM, 4/26/2017] Diya: There's only 1 person</item>
+        <item>[10:44 PM, 4/26/2017] Diya: There\'s only 1 person</item>
         <item>[10:44 PM, 4/26/2017] Diya: I repeat 1 person</item>
     </string-array>
 
@@ -98,13 +98,13 @@
     <!-- https://pastebin.com/raw/2PenZbqr -->
     <string-array name="random_cpp_code">
         <item>std::vector&lt;int&gt; cycle(const std::vector&lt;std::list&lt;size_t&gt;&gt;\&amp; graph) {</item>
-        <item>std::vector&lt;char&gt; visited(graph.size(), '0');</item>
+        <item>std::vector&lt;char&gt; visited(graph.size(), \'0\');</item>
         <item>std::vector&lt;int&gt; parent(graph.size(), -1);</item>
         <item>int cycle_begin = -1, cycle_end = -1;</item>
 
         <item>std::vector&lt;int&gt; result;</item>
         <item>for (int i = 0; i != graph.size(); ++i) {</item>
-        <item>if (visited[i] == '0') {</item>
+        <item>if (visited[i] == \'0\') {</item>
         <item>bool cycled = DFS(graph, visited, i, parent, cycle_begin, cycle_end);</item>
         <item>if (cycled) {</item>
         <item>int current = cycle_end;</item>
