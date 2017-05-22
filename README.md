@@ -1,4 +1,5 @@
 # yak
+![exploit gif](exploit.gif "exploit it")<br/>
 Has [wikipedia](https://en.wikipedia.org/wiki/Domestic_yak) says:
 >The domestic yak (Bos grunniens) is a long-haired domesticated bovid found throughout the Himalaya region of southern Central Asia, the Tibetan Plateau and as far north as Mongolia and Russia. It is descended from the wild yak, Bos mutus
 
