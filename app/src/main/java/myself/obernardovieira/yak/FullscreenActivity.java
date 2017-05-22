@@ -32,6 +32,7 @@ public class FullscreenActivity extends AppCompatActivity {
     ScrollView scroll_hack;
     String[] c_aircrack_ng;
     String[] a_aircrack_ng;
+    boolean isCommand;
     String next_text;
     int next_random;
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -112,6 +113,7 @@ public class FullscreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_fullscreen);
 
+        isCommand = true;
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
@@ -154,8 +156,15 @@ public class FullscreenActivity extends AppCompatActivity {
                         pre_set_text = new TextView(FullscreenActivity.this);
                         pre_set_text.setTextColor(Color.WHITE);
                         //
-                        next_random = ThreadLocalRandom.current().nextInt(0, c_aircrack_ng.length);
-                        next_text = "$ " + c_aircrack_ng[next_random];
+                        if(isCommand) {
+                            next_random = ThreadLocalRandom.current().nextInt(0, c_aircrack_ng.length);
+                            next_text = "$ " + c_aircrack_ng[next_random];
+                        }
+                        else {
+                            next_random = ThreadLocalRandom.current().nextInt(0, a_aircrack_ng.length);
+                            next_text = "$ " + a_aircrack_ng[next_random];
+                        }
+                        isCommand ^= true;
                         //
                         pre_set_text.setText(next_text);
                         id_hack_layout.addView(pre_set_text);
